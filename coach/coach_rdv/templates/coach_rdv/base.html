@@ -12,10 +12,10 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#">Accueil</a></li>
+            <li><a href="{% url 'home' %}">Accueil</a></li>
              <li><a href="#">Prendre un RDV</a></li>
             <li><a href="#">Historique</a></li>
-            <li><a href="#">Se connecter</a></li>
+            <li><a href="{% url 'login' %}">Connexion</a></li>
         </ul>
     </nav>
     {% block content %}{% endblock %}
