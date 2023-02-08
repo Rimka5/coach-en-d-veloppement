@@ -1,0 +1,37 @@
+{% extends 'coach_rdv/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr"></html>
+<html>
+<head>
+  <title>Inscription</title>
+  <link rel="stylesheet" href="{% static 'coach_rdv/styles1.css' %}" />
+</head>
+<body>
+    <br><br><br><br>
+  <h1>Inscription</h1>
+  <form action="{% url 'registre' %}"  method="post">
+    {% csrf_token %}
+    <div>
+      <label for="username">Nom d'utilisateur:</label>
+      <input type="text" id="username" name="username">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+    </div>
+    <br>
+    <div>
+      <label for="password1">Mot de passe:</label>
+      <input type="password" id="password1" name="password1">
+    </div>
+    <div>
+      <label for="password2">Confirmez le mot de passe:</label>
+      <input type="password" id="password2" name="password2">
+    </div>
+    <input type="submit" value="S'inscrire">
+  </form>
+</body>
+</html>
+{% endblock %}

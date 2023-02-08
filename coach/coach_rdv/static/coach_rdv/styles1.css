@@ -38,5 +38,5 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: blue;
+    background-color: rgb(27, 7, 98);
 }

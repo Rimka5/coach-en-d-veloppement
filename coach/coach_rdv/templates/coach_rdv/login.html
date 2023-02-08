@@ -9,14 +9,13 @@
   <link rel="stylesheet" href="{% static 'coach_rdv/styles1.css' %}" />
 </head>
 <body>
-<center>
     <br><br><br><br><br><br><br>
   <h1>Connexion</h1>
   <form action="{% url 'login' %}" method="post">
     {% csrf_token %}
     <div>
       <label for="username">Nom d'utilisateur:</label>
-      <input type="text" id="username" name="username">
+      <input type="text" id="username" name="username" placeholder="entrez votre nom">
     </div>
     <br>
     <div>
@@ -26,7 +25,6 @@
     <br>
     <input type="submit" value="Connexion">
   </form>
-</center>
 </body>
 </html>
 {% endblock %}
