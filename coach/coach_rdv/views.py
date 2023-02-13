@@ -3,20 +3,24 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-# from django.http import HttpResponse
+
 
 def home (request):
     return render(request, 'coach_rdv/home.html')
 
 def registre (request):
-    if request.method == "poste":
-        username = request.Post['username']
-        email = request.Post['email']
-        password1 = request.Post['password1']
-        password2 = request.Post['password2']
-        mon_utilisateur = User.objects.create_user(username, email, password1)
-        mon_utilisateur.username = username
-        mon_utilisateur.save()
+    if request.method == "POST":
+        username = request.POST['username']
+        email = request.POST['email']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+        if password1 == password2:
+            mon_utilisateur = User.objects.create()
+            mon_utilisateur.username = username
+            mon_utilisateur.email = email
+            mon_utilisateur.password = password1
+            mon_utilisateur.password = password2
+            mon_utilisateur.save()
         messages.success(request, 'votre compte a bien été crée avec succès')
         return redirect('login')
         
@@ -25,11 +29,13 @@ def registre (request):
 
 
 def login (request):
-    if request.method == "poste":
-        username = request.Post['username']
-        password1 = request.Post['password1']
-        user = authenticate(username=username, password1=password1)
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        print(user)
         if user is not None:
+            print("TEST")
             login(request, user)
             username = user.username
             return render(request, 'coach_rdv/home.html', {'username':username})

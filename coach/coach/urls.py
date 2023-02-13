@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from coach_rdv import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('admin/', views.admin, name='admin'),
@@ -24,5 +25,5 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
     path('registre/', views.registre, name='registre'),
-
+    
 ]

@@ -17,7 +17,7 @@
   {{message}}
   {% endfor %}
       {% comment %} <form action="{% url 'login' %}" method="post"> {% endcomment %}
-  <form  method="post" action="registre/">
+  <form  method="post">
     {% csrf_token %}
     <div>
       <label for="username">Nom d'utilisateur:</label>
