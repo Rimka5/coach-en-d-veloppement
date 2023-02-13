@@ -14,7 +14,7 @@ def registre (request):
         email = request.Post['email']
         password1 = request.Post['password1']
         password2 = request.Post['password2']
-        mon_utilisateur = User.objects.create(username, email, password1)
+        mon_utilisateur = User.objects.create_user(username, email, password1)
         mon_utilisateur.username = username
         mon_utilisateur.save()
         messages.success(request, 'votre compte a bien été crée avec succès')
