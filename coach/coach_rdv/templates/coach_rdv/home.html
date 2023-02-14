@@ -1,6 +1,6 @@
 {% extends 'coach_rdv/base.html' %}
 {% block content %}
-{% if user.is_authentificate %}
-<h3>Bonjour {{username}} Bienvenu sur le site du cach en developpement..!</h3>
+{% if user.is_authenticated %}
+<center><h3> Bonjour {{ user.username }}, bienvenu(e) sur le site du coach en developpement..!</h3></center>
 {% endif %}
 {% endblock %}

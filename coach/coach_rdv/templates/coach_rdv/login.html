@@ -13,11 +13,11 @@
 <body>
     <br><br><br><br><br><br><br>
   <h1>Connexion</h1>
-  {% for messages in messages%}
+  {% for message in messages%}
   {{message}}
   {% endfor %}
       {% comment %} <form action="{% url 'login' %}" method="post"> {% endcomment %}
-  <form  method="post">
+  <form  method = "POST">
     {% csrf_token %}
     <div>
       <label for="username">Nom d'utilisateur:</label>

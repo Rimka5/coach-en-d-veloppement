@@ -15,11 +15,7 @@ def registre (request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         if password1 == password2:
-            mon_utilisateur = User.objects.create()
-            mon_utilisateur.username = username
-            mon_utilisateur.email = email
-            mon_utilisateur.password = password1
-            mon_utilisateur.password = password2
+            mon_utilisateur = User.objects.create_user(username, email, password1)
             mon_utilisateur.save()
         messages.success(request, 'votre compte a bien été crée avec succès')
         return redirect('login')
@@ -28,17 +24,15 @@ def registre (request):
     return render(request, 'coach_rdv/registre.html')
 
 
-def login (request):
+def login_view (request):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
-        print(user)
         if user is not None:
-            print("TEST")
             login(request, user)
             username = user.username
-            return render(request, 'coach_rdv/home.html', {'username':username})
+            return redirect("home")
         else:
             messages.error(request, 'le site n a pas pu vous authentifier')
             return redirect ('login')
@@ -46,6 +40,6 @@ def login (request):
 
 def logout (request):
     pass
-class LoginView(LoginView):
-    template_name = 'login.html'
-    redirect_authenticated_user = True
+# class LoginView(LoginView):
+#     template_name = 'login.html'
+#     redirect_authenticated_user = True
