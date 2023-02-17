@@ -16,14 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from coach_rdv import views
+# from rendez_vous.views import prendre_rdv
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('admin/', views.admin, name='admin'),
     path('', views.home, name='home'),
     path('login/', views.login_view, name='login'),
-    path('logout/', views.logout, name='logout'),
+    path('logoutnz/', views.logout_view, name='logout'),
     path('registre/', views.registre, name='registre'),
+    # path('prendre_rdv/', views.prendre_rdv, name='prendre_rdv'),
     
 ]

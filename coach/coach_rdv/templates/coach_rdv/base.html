@@ -13,10 +13,14 @@
     <nav>
         <ul>
             <li><a href="{% url 'home' %}">Accueil</a></li>
-             <li><a href="#">Prendre un RDV</a></li>
             <li><a href="#">Historique</a></li>
             <li><a href="{% url 'registre' %}">Inscription</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="#">Prendre un RDV</a></li>
+            <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+            {% else %}
             <li><a href="{% url 'login' %}">Connexion</a></li>
+            {% endif %}
         </ul>
     </nav>
     {% block content %}{% endblock %}

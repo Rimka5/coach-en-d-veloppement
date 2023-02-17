@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -38,8 +37,7 @@ def login_view (request):
             return redirect ('login')
     return render(request, 'coach_rdv/login.html')
 
-def logout (request):
-    pass
-# class LoginView(LoginView):
-#     template_name = 'login.html'
-#     redirect_authenticated_user = True
+def logout_view (request):
+    logout(request)
+    messages.success(request, 'vous avez été déconnecté')
+    return redirect('login')

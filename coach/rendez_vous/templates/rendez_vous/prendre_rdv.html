@@ -1,0 +1,12 @@
+{% extends 'coach_rdv/base.html' %}
+
+{% block title %}Prendre rendez-vous{% endblock %}
+
+{% block content %}
+    <h1>Prendre rendez-vous</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Prendre rendez-vous</button>
+    </form>
+{% endblock %} 
